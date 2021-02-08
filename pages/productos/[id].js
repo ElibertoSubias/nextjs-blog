@@ -49,35 +49,6 @@ const BotonAgregar = styled.input`
     }
 `;
 
-export async function getServerSideProps() {
-    // Get external data from the file system, API, DB, etc.
-    // const data = ...
-    // Routing para obtener el id actual
-    // const router = useRouter();
-    // const { query: { id }} = router;
-    const id = 'aHUMVACEsPwDd9W7SWdF';
-    const obtenerProducto = async () => {
-        const productoQuery = await firebase.db.collection('productos').doc(id);
-        const doc = await productoQuery.get();
-        if (doc.exists) {
-            guardarProducto(doc.data());
-            console.log(producto);
-        } else {
-            guardarError(true);
-        }
-    }
-    obtenerProducto();
-  
-    // The value of the `props` key will be
-    //  passed to the `Home` component
-    return {
-    //   props: ...
-        props: {
-            id
-        }
-    }
-  }
-
 const Producto = (props) => {
 
     // state del componente
