@@ -1,14 +1,13 @@
 import React from 'react';
 import Layout from '../components/layout/Layout';
-/** @jsx jsx */ import { jsx, css } from '@emotion/core';
 import DetallesProducto from '../components/layout/DetallesProducto';
+/** @jsx jsx */ import { jsx, css } from '@emotion/core';
 import useProductos from '../hooks/useProductos';
 
+export default function Populares() {
 
-export default function Home() {
+  const { productos } = useProductos('votos');
 
-  const { productos } = useProductos('creado');
-  
   return (
     <Layout>
       {productos.map(producto => (
